@@ -1,7 +1,7 @@
 <%= form_with(model: publication) do |form| %>
   <% if publication.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+      <h2><%= pluralize(publication.errors.count, "error") %> Se ha prohibido que esta publicación sea guardada</h2>
 
       <ul>
         <% publication.errors.each do |error| %>
