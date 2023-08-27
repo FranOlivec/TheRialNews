@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "homes#index"
+  get '/publications', to: 'publications#index', as:'user_root'
 end
