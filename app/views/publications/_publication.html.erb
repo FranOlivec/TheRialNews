@@ -1,0 +1,21 @@
+<div id="<%= dom_id publication %>">
+  <p>
+    <%= image_tag publication.image, size: "300x300"%>
+  </p>
+
+  <p>
+    <strong>Título:</strong>
+    <%= publication.title %>
+  </p>
+
+  <p>
+    <strong>Descripción:</strong>
+    <%= publication.description %>
+  </p>
+
+  <p>
+    <strong>Usuario</strong>
+    <%= publication.user.email %>
+  </p>
+
+</div>
