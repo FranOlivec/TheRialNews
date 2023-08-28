@@ -1,12 +1,16 @@
 <h1>Publicaciones</h1>
-
-<div id="publications">
-  <% @publications.each do |publication| %>
-    <%= render publication %>
-    <p>
-      <%= link_to "Mostrar esta Publicación", publication %>
-    </p>
-  <% end %>
-</div>
-
 <%= link_to "Nueva Publicación", new_publication_path %>
+
+  
+    <div id="publications">
+      <% @publications.each do |publication| %>
+        <%= render publication %>
+        <div class="d-flex justify-content-center align-items-center">
+          <p>
+            <%= link_to "Mostrar esta Publicación", publication %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  
+

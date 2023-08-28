@@ -1,21 +1,14 @@
-<div id="<%= dom_id publication %>">
-  <p>
-    <%= image_tag publication.image, size: "300x300"%>
-  </p>
 
-  <p>
-    <strong>Título:</strong>
-    <%= publication.title %>
-  </p>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="card mb-3 col-md-6" id="<%= dom_id publication %>">
+      <%= image_tag publication.image, class: "card-img-top", alt: "Imagen de la Publicación"%>
+      <div class="card-body">
+        <h5 class="card-title"><%= publication.title %></h5>
+        <p class="card-text"><strong>Descripción:</strong> <%= publication.description %></p>
+        <p class="card-text"><strong>Usuario:</strong> <%= publication.user.name %></p>
+      </div>
+    </div>
+  </div>
+  
 
-  <p>
-    <strong>Descripción:</strong>
-    <%= publication.description %>
-  </p>
 
-  <p>
-    <strong>Usuario</strong>
-    <%= publication.user.email %>
-  </p>
-
-</div>

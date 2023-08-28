@@ -38,7 +38,7 @@ en:
       updated_not_active: "Tu contraseña ha sido cambiada exitosamente."
     registrations:
       destroyed: "¡Adiós! Su cuenta ha sido cancelada exitosamente. Esperamos volver a verte pronto."
-      signed_up: "¡Bienvenido! Te has registrado exitosamente."
+      signed_up: "¡Bienvenid@! Te has registrado exitosamente."
       signed_up_but_inactive: "Te has registrado exitosamente. Sin embargo, no pudimos iniciar sesión porque su cuenta aún no está activada."
       signed_up_but_locked: "Te has registrado exitosamente. Sin embargo, no pudimos iniciar sesión porque su cuenta está bloqueada."
       signed_up_but_unconfirmed: "Se ha enviado un mensaje con un enlace de confirmación a su dirección de correo electrónico. Siga el enlace para activar su cuenta."
