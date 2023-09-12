@@ -1,16 +1,26 @@
 <h1>Publicaciones</h1>
-<%= link_to "Nueva Publicación", new_publication_path %>
+<%= link_to "Nueva Publicación", new_publication_path if user_signed_in? %>
 
-  
-    <div id="publications">
-      <% @publications.each do |publication| %>
-        <%= render publication %>
-        <div class="d-flex justify-content-center align-items-center">
-          <p>
-            <%= link_to "Mostrar esta Publicación", publication %>
-          </p>
+<div id="publications">
+  <% @publications.each do |publication| %>
+    <%= render publication %>
+    <div class="d-flex justify-content-center align-items-center">
+      <p>
+        <%= link_to "Mostrar esta Publicación", publication %>
+      </p>
+    </div>
+
+    <!-- Aquí mostramos los comentarios de la publicación -->
+    <div class="comments-section">
+      <h2>Comentarios</h2>
+      <% publication.comments.each do |comment| %>
+        <div class="comment">
+          <strong><%= comment.user.name %>:</strong>
+          <%= comment.content %>
         </div>
       <% end %>
     </div>
-  
+  <% end %>
+</div>
+
 

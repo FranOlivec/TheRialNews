@@ -1,8 +1,36 @@
 <%= render @publication %>
 
 <div>
-  <%= link_to "Editar esta publicación", edit_publication_path(@publication) %> |
+  <% if user_signed_in? && current_user == @publication.user %>
+    <%= link_to "Editar esta publicación", edit_publication_path(@publication) %> |
+  <% end %>
+
   <%= link_to "Volver a Publicaciones", publications_path %>
 
-  <%= button_to "Borrar esta publicación", @publication, method: :delete %>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= button_to "Borrar esta publicación", @publication, method: :delete, data: { confirm: "¿Estás seguro?" } %>
+  <% end %>
 </div>
+
+<h2>Comentarios</h2>
+<% @publication.comments.each do |comment| %>
+  <p>
+    <strong><%= comment.user.email %>:</strong> <%= comment.content %>
+    <% if current_user&.admin? %>
+      <%= link_to 'Eliminar', publication_comment_path(@publication, comment), method: :delete, data: { confirm: '¿Estás seguro?' } %>
+    <% end %>
+  </p>
+<% end %>
+
+<% if user_signed_in? %>
+  <h3>Añadir un comentario</h3>
+  <%= form_with(model: [ @publication, @publication.comments.build ]) do |form| %>
+    <div class="field">
+      <%= form.label :body, "Comentario" %>
+      <%= form.text_area :body %>
+    </div>
+    <div class="actions">
+      <%= form.submit "Añadir comentario" %>
+    </div>
+  <% end %>
+<% end %>
